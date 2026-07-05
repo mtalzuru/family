@@ -128,7 +128,7 @@ h1 {
         </div>
         <div id="detExtras" class="det-meta"></div>
         <button id="detMoreBtn" onclick="toggleMore()" style="display:none;margin-top:8px;background:#f0f0ee;border:0.5px solid rgba(0,0,0,0.12);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;color:#444;cursor:pointer;font-family:inherit;min-height:32px;width:100%;text-align:left;">More ▾</button>
-        <div id="detFull" style="display:none;margin-top:6px;padding-top:6px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:11px;color:#555;white-space:pre-line;line-height:1.5;max-height:260px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;"></div>
+        <div id="detFull" style="display:none;margin-top:6px;padding-top:6px;border-top:0.5px solid rgba(0,0,0,0.08);font-size:11px;color:#555;white-space:pre-line;line-height:1.5;max-height:260px;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;"></div>
       </div>
       <button class="close-btn" onclick="closeDet()" aria-label="Close">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -217,7 +217,7 @@ var mobileWindows=[
   {s:new Date(2027,5,1), e:new Date(2027,5,29),label:'Jun 2027'},
 ];
 
-var wi=0;
+var today=new Date();today.setHours(0,0,0,0);var _iw=isMobile()?mobileWindows:desktopWindows;var wi=_iw.length-1;for(var _i=0;_i<_iw.length;_i++){if(today<_iw[_i].e){wi=_i;break;}}
 var prevMob=isMobile();
 
 function isMobile(){return window.innerWidth<=600;}
